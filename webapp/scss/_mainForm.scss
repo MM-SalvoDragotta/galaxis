@@ -5,6 +5,7 @@ $fadeInTime: 0.5s;
 body {
 	//font-family: "Andale Mono", AndaleMono, monospace;
 	font-family: 'Montserrat', sans-serif;
+	font-weight: 300;
 	color: $primaryTextColor;
 	font-size: 18px;
 
@@ -72,6 +73,10 @@ body {
 		left: -20px;
 		top: 0px;
 	}
+
+	.input-field:before {
+		color:  $answerTextColor;
+	}
 }
 
 
@@ -133,11 +138,15 @@ body {
     border-radius: 50%;
     width: 75px;
     height: 75px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 
 	// position: absolute;
 	// top: 10px;
 	// left: 10px;
+
+	.microphone-label {
+		font-size: 16px;
+	}
 
 	i {
 		position: relative;

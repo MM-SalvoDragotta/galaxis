@@ -129,14 +129,16 @@ function scrollNewAnswer() {
 
 function initialise() {
 	var openingQuestions = [
-		"Hi there. My name is <strong>GALAXIS</strong>. <br> I'm your virtual space buddy. Think of me like Steven Hawking pocket edition for space. <br> <br> You can ask me questions about Mars, Earth, Climate Change... plus I can do some space math calculation.",
-		"Hey! I'm <strong>GALAXIS</strong>, nice to meet you :) <br> I'm like a virtual Rick from Rick and Morty... but a sober one. <br> <br> I know all about Earth, Mars and I can do some space math.",
-		"Hi there. I'm <strong>GALAXIS</strong>! <br> I'm your guide to understanding our universe. I can be your space buddy and together we can learn about the planets in our solar system, what space travel is like and why the earth is such a special planet.",
-		"Hi there. I'm <strong>GALAXIS</strong>! <br> If you've ever imagined what space travel is like, thought about living on Mars or just simply curious about our solar system. We can learn about it together and discover why our Earth is so special.",
-		"Hey there, my name is <strong>GALAXIS</strong> and I'm your space buddy. <br> You can ask me anything about the universe and our solar system. We can even talk travelling to other planets!"
+		"Hi there. My name is Galaxis. <br> I'm your virtual space buddy. Think of me like Steven Hawking pocket edition for space. <br><br> You can ask me questions about Mars, Earth, or the location of the ISS in real time. I can also do some space math calculation.",
+		"Hey! I'm Galaxis, nice to meet you :) <br> I'm like a virtual Rick from Rick and Morty... but a sober one. <br> I have decent knowledge about Mars, Earth, Jupiter and location of the ISS. I'm also pretty good at space math calculation.",
+		"Hello. I'm Galaxis, your guide to understanding our universe and together we can learn about the planets in our solar system, what space travel is like and why our earth is such special planet. <br> Here's some of the things I know: Mars, Jupiter, life as astronauts, Earth, and ISS location in real time. I'm also a quick wizard in space math!",
+		"Hey there, my name is Galaxis and I'm your virtual space buddy. You can ask me anything about the universe and our solar system. We can even talk about travelling to other planets!",
+		"Hi there. I'm Galaxis! <br> I can tell you what space travel is like, living on Mars or other cool things about Jupiter. We can learn about it together and discover why our Earth is so special."
 	];
+
 	var index = Math.floor((Math.random() * openingQuestions.length));
-	//index = 4;
+	//index = openingQuestions.length - 1;
+
 	addAnswer(openingQuestions[index]);
 }
 initialise();
