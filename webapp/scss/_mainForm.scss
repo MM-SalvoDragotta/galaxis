@@ -41,6 +41,10 @@ body {
 		margin-bottom: 10px;
 	}
 
+	.input-field {
+		position: relative;
+	}
+
 	input {
 		background: transparent;
 		color: $answerTextColor;
@@ -62,8 +66,8 @@ body {
 		opacity: 0.2;
 	}
 
-	&:before {
-		content: '>';
+	&:before, .input-field:before {
+		content: '[';
 		position: absolute;
 		left: -20px;
 		top: 0px;
@@ -107,5 +111,28 @@ body {
 
 	@media(min-width: $screen-sm-min) {
 		display: block;
+	}
+}
+
+#name-logo {
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	font-size: 22px;
+
+	@media(min-width: $screen-sm-min) {
+		top: 65px;
+		left: 70px;
+	}
+}
+
+#image-logo {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+
+	@media(min-width: $screen-sm-min) {
+		top: 50px;
+		right: 70px;
 	}
 }

@@ -104,6 +104,15 @@ function addAnswer(answerText) {
 }
 
 function addComment(commentText) {
+	$('.main-form .form-entry').each(function() {
+		if($(this).hasClass('fade1')) {
+			$(this).removeClass('fade1').addClass('fade2');
+		}
+		else {
+			$(this).addClass('fade1');
+		}
+	});
+
 	var template = $('#comment-template').html();
 	var commentHtml = Mustache.render(template, { 'commentText': commentText });
 	$('.main-form').append(commentHtml);
@@ -120,11 +129,11 @@ function scrollNewAnswer() {
 
 function initialise() {
 	var openingQuestions = [
-		"Hi there. My name is Galaxis. <br> I'm your virtual space buddy. Think of me like Steven Hawking pocket edition for space. <br> <br> You can ask me questions about Mars, Earth, Climate Change... plus I can do some space math calculation.",
-		"Hey! I'm Galaxis, nice to meet you :) <br> I'm like a virtual Rick from Rick and Morty... but a sober one. <br> <br> I know all about Earth, Mars and I can do some space math.",
-		"Hi there. I'm Galaxis! <br> I'm your guide to understanding our universe. I can be your space buddy and together we can learn about the planets in our solar system, what space travel is like and why the earth is such a special planet.",
-		"Hi there. I'm Galaxis! If you've ever imagined what space travel is like, thought about living on Mars or just simply curious about our solar system. We can learn about it together and discover why our Earth is so special.",
-		"Hey there, my name is Galaxis and I'm your space buddy. You can ask me anything about the universe and our solar system. We can even talk travelling to other planets!"
+		"Hi there. My name is <strong>GALAXIS</strong>. <br> I'm your virtual space buddy. Think of me like Steven Hawking pocket edition for space. <br> <br> You can ask me questions about Mars, Earth, Climate Change... plus I can do some space math calculation.",
+		"Hey! I'm <strong>GALAXIS</strong>, nice to meet you :) <br> I'm like a virtual Rick from Rick and Morty... but a sober one. <br> <br> I know all about Earth, Mars and I can do some space math.",
+		"Hi there. I'm <strong>GALAXIS</strong>! <br> I'm your guide to understanding our universe. I can be your space buddy and together we can learn about the planets in our solar system, what space travel is like and why the earth is such a special planet.",
+		"Hi there. I'm <strong>GALAXIS</strong>! <br> If you've ever imagined what space travel is like, thought about living on Mars or just simply curious about our solar system. We can learn about it together and discover why our Earth is so special.",
+		"Hey there, my name is <strong>GALAXIS</strong> and I'm your space buddy. <br> You can ask me anything about the universe and our solar system. We can even talk travelling to other planets!"
 	];
 	var index = Math.floor((Math.random() * openingQuestions.length));
 	//index = 4;

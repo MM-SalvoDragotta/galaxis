@@ -25,6 +25,8 @@ body {
   position: relative; }
   .form-entry .answer-text {
     margin-bottom: 10px; }
+  .form-entry .input-field {
+    position: relative; }
   .form-entry input {
     background: transparent;
     color: white;
@@ -38,8 +40,8 @@ body {
     opacity: 0.4; }
   .form-entry.fade2 {
     opacity: 0.2; }
-  .form-entry:before {
-    content: '>';
+  .form-entry:before, .form-entry .input-field:before {
+    content: '[';
     position: absolute;
     left: -20px;
     top: 0px; }
@@ -71,5 +73,24 @@ body {
   @media (min-width: 768px) {
     #tag-cloud {
       display: block; } }
+
+#name-logo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 22px; }
+  @media (min-width: 768px) {
+    #name-logo {
+      top: 65px;
+      left: 70px; } }
+
+#image-logo {
+  position: absolute;
+  top: 20px;
+  right: 20px; }
+  @media (min-width: 768px) {
+    #image-logo {
+      top: 50px;
+      right: 70px; } }
 
 /*# sourceMappingURL=screen.css.map */
