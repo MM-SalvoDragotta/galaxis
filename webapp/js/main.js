@@ -19,7 +19,7 @@ var userId = guid();
 
 
 // Bind event handler for most recent input field
-$('.main-form').on('keyup', '.form-entry:last-child input', function(event) {
+$('.main-form').on('keyup', '.form-entry.current-entry input', function(event) {
 	// Ignore anything but enter key
 	if(event.keyCode != 13) {
 		return;
@@ -31,9 +31,9 @@ $('.main-form').on('keyup', '.form-entry:last-child input', function(event) {
 
 function submitQuestion() {
 	// Disable the input field
-	$('.main-form .form-entry:last-child input').prop('readonly', 'readonly');
+	$('.main-form .form-entry.current-entry input').prop('readonly', 'readonly');
 
-	var question = $('.main-form .form-entry:last-child input').val();
+	var question = $('.main-form .form-entry.current-entry input').val();
 
 	var postData = {
 		"SessionId" : userId,
@@ -82,7 +82,7 @@ function addAnswer(answerText) {
 		}
 	});
 
-	$('.main-form .form-entry:last-child input').removeClass('question-input');
+	$('.main-form .form-entry.current-entry input').removeClass('question-input');
 
 	var template = $('#answer-template').html();
 	var answerHtml = Mustache.render(template, { 'answerText': answerText });
@@ -92,8 +92,9 @@ function addAnswer(answerText) {
 
 	// Fade in new entry
 	setTimeout(function() {
-		$('.main-form .form-entry:last-child').removeClass('new-entry');
-		$('.main-form .form-entry:last-child input').focus();
+		$('.main-form .form-entry').removeClass('current-entry');
+		$('.main-form .form-entry:last-child').removeClass('new-entry').addClass('current-entry');
+		$('.main-form .form-entry.current-entry input').focus();
 
 		var htmlStripped = $('<p>' + answerText + '</p>').text();
 
