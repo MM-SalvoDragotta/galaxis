@@ -110,6 +110,36 @@
       </Steps>
     </Question>
     <Question>
+      <Intent>calculate_drop_time</Intent>
+      <IsFlow>true</IsFlow>
+      <ClearValues>true</ClearValues>
+      <Steps>
+        <Step>
+          <Question>Can you please specify the place?</Question>
+          <FieldType>String</FieldType>
+          <FieldName>place</FieldName>
+          <OptionalStep>false</OptionalStep>
+          <Value></Value>
+        </Step>
+        <Step>
+          <Question>Here are some recipes for you</Question>
+          <FieldType>show_record</FieldType>
+          <FieldName>ShowType</FieldName>
+          <CustomBinding>http://nasaai.azurewebsites.net/api/calculator/calculateflighttime?dropper=object&amp;place={0}</CustomBinding>
+          <CustomMapping>Mapping.xml</CustomMapping>
+          <ReturnAttachment>false</ReturnAttachment>
+          <RequireUserData>false</RequireUserData>
+          <StepInputs>
+            <StepInput>
+              <InputFieldIndex>0</InputFieldIndex>
+              <IsGlobal>false</IsGlobal>
+            </StepInput>
+          </StepInputs>
+          <Value></Value>
+        </Step>
+      </Steps>
+    </Question>
+    <Question>
       <Intent>locate_iss</Intent>
       <IsFlow>false</IsFlow>
       <Steps>
@@ -136,7 +166,10 @@
     <Intent>
       <Name>calculate_weight</Name>
     </Intent>
-  <Intent>
+    <Intent>
+      <Name>calculate_drop_time</Name>
+    </Intent>
+    <Intent>
       <Name>locate_iss</Name>
     </Intent>
   </ListedIntents>
@@ -144,8 +177,11 @@
     <ProcessEntity>
       <Entity>planet</Entity>
     </ProcessEntity>
-  <ProcessEntity>
+    <ProcessEntity>
       <Entity>unit-weight</Entity>
+    </ProcessEntity>
+    <ProcessEntity>
+      <Entity>place</Entity>
     </ProcessEntity>
   </Entities>
 </Process>

@@ -43,7 +43,7 @@ namespace NasaBot.Controllers
                         var planet2 = calculatedPlanets.LastOrDefault().Distance;
 
                         var result = (planet2 - planet1) * 150;
-                        obj.Add("result", $"The average distance between {calculatedPlanets.FirstOrDefault().Name} and {calculatedPlanets.LastOrDefault().Name} is {result} million kilometers. which is {result/1.6} million miles.");
+                        obj.Add("result", $"The average distance between {calculatedPlanets.FirstOrDefault().DisplayName} and {calculatedPlanets.LastOrDefault().DisplayName} is {Math.Round(result,2)} million kilometers. which is {Math.Round(result /1.6,2)} million miles.");
                         return obj;
                     }
                 }
@@ -83,7 +83,7 @@ namespace NasaBot.Controllers
                         StringBuilder sb = new StringBuilder();
                         if (calculatedPlanets.Count() > 2)
                         {
-                            sb.Append($"From top to bottom the order is {string.Join(",", calculatedPlanets)}.");
+                            sb.Append($"From largest to smallest the order is {string.Join(", ", calculatedPlanets.Select(x=> x.DisplayName))}.");
                         }
 
                         var first = calculatedPlanets.FirstOrDefault();
@@ -94,7 +94,7 @@ namespace NasaBot.Controllers
                                 continue;
                             }
                             var res = first.Radius / item.Radius;
-                            sb.Append($"{first.Name} is bigger than {res} times when compared to {item.Name}.");
+                            sb.Append($" {first.DisplayName} is more than {Math.Round(res, 2)}  times the size of {item.DisplayName}. ");
                         }
 
                         obj.Add("result", sb.ToString());
@@ -134,7 +134,7 @@ namespace NasaBot.Controllers
                         foreach (var item in calculatedPlanets)
                         {
                             var res = (Convert.ToDouble(scale[0]) / 9.81) * item.Gravity;
-                            sb.Append($"Your weight on {item.Name} is {Math.Round(res,2)} {scale[1]}.");
+                            sb.Append($"Your weight on {item.DisplayName} is {Math.Round(res,2)} {scale[1]}.");
                         }
                         
                         obj.Add("result", sb.ToString());
@@ -170,7 +170,7 @@ namespace NasaBot.Controllers
                             dynamic mapData = JsonConvert.DeserializeObject(mapDataString.Result);
                             if (mapData != null && mapData.country_code != null)
                             {
-                                obj.Add("result", $"Currently ISS located on country {mapData.country_code} and timezone is {mapData.timezone_id}.");
+                                obj.Add("result", $"Currently ISS flying over {mapData.country_code} and timezone is {mapData.timezone_id}.");
                             }
                             else
                             {
@@ -188,6 +188,52 @@ namespace NasaBot.Controllers
             {
                 obj.Add("result", $"Sorry, I can't see it from here.");
                 return obj;
+            }
+        }
+
+        [HttpGet]
+        public object CalculateFlightTime(string dropper, string place)
+        {
+            JObject obj = new JObject();
+            try
+            {
+                if (!string.IsNullOrEmpty(place))
+                {
+                    var height = GetHeight(place.ToLower());
+                    var res = Math.Sqrt((2 * height) / 9.81);
+                    obj.Add("result", $"The flight time is {Math.Round(res,2)} seconds.");
+                    return obj;
+                }
+
+                obj.Add("result", $"Sorry, I am unable to calculate it.");
+                return obj;
+            }
+            catch (Exception)
+            {
+                obj.Add("result", $"Sorry, I am unable to calculate it.");
+                return obj;
+            }
+        }
+
+        private double GetHeight(string place)
+        {
+            switch (place)
+            {
+                case "eiffel tower":
+                    return 330;
+                    break;
+                case "sydney tower":
+                    return 309;
+                    break;
+                case "burj khalifa":
+                    return 828;
+                    break;
+                case "taipei 101":
+                    return 508;
+                    break;
+                default:
+                    return 0d;
+                    break;
             }
         }
     }
