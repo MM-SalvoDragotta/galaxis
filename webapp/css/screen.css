@@ -1,0 +1,69 @@
+body {
+  font-family: "Andale Mono", AndaleMono, monospace;
+  color: #557999; }
+
+.full-height {
+  height: 100%; }
+
+.main-form {
+  position: relative;
+  top: 100%;
+  width: 100%;
+  transition: transform 0.5s ease-in-out; }
+  @media (min-width: 768px) {
+    .main-form {
+      top: 50%; } }
+
+.form-entry {
+  transition: opacity 0.5s linear;
+  padding-bottom: 20px;
+  position: relative; }
+  .form-entry .answer-text {
+    margin-bottom: 10px; }
+  .form-entry input {
+    color: #c5ae99;
+    border: none;
+    border-bottom: 1px solid #c5ae99;
+    outline: none;
+    width: 100%; }
+  .form-entry.new-entry {
+    opacity: 0; }
+  .form-entry.fade1 {
+    opacity: 0.4; }
+  .form-entry.fade2 {
+    opacity: 0.2; }
+  .form-entry:before {
+    content: '>';
+    position: absolute;
+    left: -20px;
+    top: 0px; }
+
+.recording-button {
+  background: transparent;
+  border: none;
+  outline: none;
+  position: absolute;
+  top: 10px;
+  left: 10px; }
+  .recording-button.recording {
+    color: red; }
+  @media (min-width: 768px) {
+    .recording-button {
+      left: 25%; } }
+
+#tag-cloud {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  height: 50%;
+  width: 100%; }
+  #tag-cloud .jqcloud-word {
+    padding: 10px;
+    color: #557999;
+    border: 1px dashed #557999;
+    font-size: 14px; }
+  @media (min-width: 768px) {
+    #tag-cloud {
+      display: block; } }
+
+/*# sourceMappingURL=screen.css.map */

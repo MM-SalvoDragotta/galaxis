@@ -1,0 +1,104 @@
+
+$scrollTime: 0.5s;
+$fadeInTime: 0.5s;
+
+body {
+	font-family: "Andale Mono", AndaleMono, monospace;
+	color: $primaryTextColor;
+	//font-size: 16px;
+}
+
+.full-height {
+	height: 100%;
+}
+
+.main-form {
+	position: relative;
+	top: 100%;
+	width: 100%;
+	//margin-top: -60px;
+	transition: transform $scrollTime ease-in-out;
+	
+	
+	@media(min-width: $screen-sm-min) {
+		top: 50%;
+	}
+}
+
+
+.form-entry {
+	transition: opacity $fadeInTime linear;
+	padding-bottom: 20px;
+	position: relative;
+
+	.answer-text {
+		margin-bottom: 10px;
+	}
+
+	input {
+		color: $answerTextColor;
+		border: none;
+		border-bottom: 1px solid $answerTextColor;
+		outline: none;
+		width: 100%;
+	}
+
+	&.new-entry {
+		opacity: 0;
+	}
+
+	&.fade1 {
+		opacity: 0.4;
+	}
+
+	&.fade2 {
+		opacity: 0.2;
+	}
+
+	&:before {
+		content: '>';
+		position: absolute;
+		left: -20px;
+		top: 0px;
+	}
+}
+
+
+.recording-button {
+	background: transparent;
+	border: none;
+	outline: none;
+
+	position: absolute;
+	top: 10px;
+	left: 10px;
+
+	&.recording {
+		color: red;
+	}
+
+	@media(min-width: $screen-sm-min) {
+		left: 25%;
+	}
+}
+
+
+
+#tag-cloud {
+	display: none;
+	position: absolute;
+	bottom: 0;
+	height: 50%;
+	width: 100%;
+
+	.jqcloud-word {
+		padding: 10px;
+		color: $primaryTextColor;
+		border: 1px dashed $primaryTextColor;
+		font-size: 14px;
+	}
+
+	@media(min-width: $screen-sm-min) {
+		display: block;
+	}
+}

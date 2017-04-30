@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html class="full-height">
+
+<head>
+	<title>Galaxis</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+	<link rel="stylesheet" href="css/vendor/bootstrap.min.css" />
+	<link rel="stylesheet" href="css/vendor/font-awesome.css" />
+	<link rel="stylesheet" href="css/vendor/jqcloud.min.css" />
+	<link rel="stylesheet" href="css/screen.css">
+</head>
+
+<body class="full-height">
+
+	<div class="container full-height">
+		<div class="row full-height">
+			<div class="col-xs-12 col-sm-7 col-sm-offset-3 full-height">
+				<div class="main-form-wrapper full-height">
+					<div class="main-form">
+						<!-- <div class="form-entry">
+							<div class="answer-text">
+								Got some text here
+							</div>
+							<input type="text">
+						</div> -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="tag-cloud">
+
+	</div>
+
+
+	<button id="btnRecord" class="recording-button hidden-xs"><h1><i class="fa fa-microphone"></i></h1></button>
+	<div style="display: none;">
+		<div id="speech_record_status" ></div>
+		<div id="speech_record_timer"></div>
+	</div>
+
+
+	
+
+
+<script id="answer-template" type="x-tmpl-mustache">
+    <div class="form-entry new-entry">
+    	<div class="answer-text">
+    		{{{answerText}}}
+    	</div>
+    	<input type="text" class="question-input">
+    </div>
+</script>
+
+<script id="comment-template" type="x-tmpl-mustache">
+    <div class="form-entry comment">
+    	<div class="comment-text">
+    		{{{commentText}}}
+    	</div>
+    </div>
+</script>
+
+
+<script type="text/javascript" src="js/vendor/jquery-2.1.3.js"></script>
+<script type="text/javascript" src="js/vendor/mustache.min.js"></script>
+<script type="text/javascript" src="js/vendor/jqcloud.min.js"></script>
+
+<script type="text/javascript" src="js/recorder-bundle.js"></script>
+<!-- <script type="text/javascript" src="js/recorderWorker-bundle.js"></script> -->
+<script type="text/javascript" src="js/CloudSpeech.js"></script>
+<script type="text/javascript" src="js/TTSService.js"></script>
+
+<script type="text/javascript" src="js/main.js"></script>
+
+</body>
+
+</html>
