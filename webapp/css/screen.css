@@ -1,6 +1,11 @@
 body {
-  font-family: "Andale Mono", AndaleMono, monospace;
-  color: #557999; }
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  font-size: 18px;
+  background-image: url("../images/bg_galaxis.png");
+  background-color: black;
+  background-size: 100% auto;
+  background-repeat: no-repeat; }
 
 .full-height {
   height: 100%; }
@@ -21,9 +26,10 @@ body {
   .form-entry .answer-text {
     margin-bottom: 10px; }
   .form-entry input {
-    color: #c5ae99;
+    background: transparent;
+    color: white;
     border: none;
-    border-bottom: 1px solid #c5ae99;
+    border-bottom: 1px solid white;
     outline: none;
     width: 100%; }
   .form-entry.new-entry {
@@ -59,8 +65,8 @@ body {
   width: 100%; }
   #tag-cloud .jqcloud-word {
     padding: 10px;
-    color: #557999;
-    border: 1px dashed #557999;
+    color: white;
+    border: 1px dashed white;
     font-size: 14px; }
   @media (min-width: 768px) {
     #tag-cloud {
