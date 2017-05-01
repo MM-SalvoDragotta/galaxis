@@ -1,0 +1,122 @@
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  color: white;
+  font-size: 18px;
+  background-image: url("../images/bg_galaxis.png");
+  background-color: black;
+  background-size: 100% auto;
+  background-repeat: no-repeat; }
+
+.full-height {
+  height: 100%; }
+
+.main-form {
+  position: relative;
+  top: 100%;
+  width: 100%;
+  transition: transform 0.5s ease-in-out; }
+  @media (min-width: 768px) {
+    .main-form {
+      top: 50%; } }
+
+.form-entry {
+  transition: opacity 0.5s linear;
+  padding-bottom: 20px;
+  position: relative; }
+  .form-entry .answer-text {
+    margin-bottom: 10px; }
+  .form-entry .input-field {
+    position: relative; }
+  .form-entry input {
+    background: transparent;
+    color: #F4D272;
+    border: none;
+    border-bottom: 1px solid #F4D272;
+    outline: none;
+    width: 100%; }
+  .form-entry.new-entry {
+    opacity: 0; }
+  .form-entry.fade1 {
+    opacity: 0.4; }
+  .form-entry.fade2 {
+    opacity: 0.2; }
+  .form-entry:before, .form-entry .input-field:before {
+    content: '[';
+    position: absolute;
+    left: -20px;
+    top: 0px; }
+  .form-entry .input-field:before {
+    color: #F4D272; }
+
+#tag-cloud {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  height: 50%;
+  width: 100%; }
+  #tag-cloud .jqcloud-word {
+    padding: 10px;
+    color: white;
+    border: 1px dashed white;
+    font-size: 14px; }
+  @media (min-width: 768px) {
+    #tag-cloud {
+      display: block; } }
+
+#name-logo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 22px; }
+  @media (min-width: 768px) {
+    #name-logo {
+      top: 65px;
+      left: 70px; } }
+
+#image-logo {
+  position: absolute;
+  top: 20px;
+  right: 20px; }
+  @media (min-width: 768px) {
+    #image-logo {
+      top: 50px;
+      right: 70px; } }
+
+#microphone-section {
+  position: absolute;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%); }
+
+.recording-button {
+  background: transparent;
+  outline: none;
+  border: 1px solid white;
+  border-radius: 50%;
+  width: 75px;
+  height: 75px;
+  margin-bottom: 10px; }
+  .recording-button .microphone-label {
+    font-size: 16px; }
+  .recording-button i {
+    position: relative;
+    bottom: 4px; }
+  .recording-button.recording {
+    color: red;
+    border: 1px solid red; }
+  @media (min-width: 768px) {
+    .recording-button {
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%); } }
+
+#credits {
+  position: absolute;
+  bottom: 20px;
+  left: 70px;
+  font-size: 14px; }
+  #credits .made-by {
+    color: #777; }
+
+/*# sourceMappingURL=screen.css.map */
