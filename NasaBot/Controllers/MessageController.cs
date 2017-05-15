@@ -1,4 +1,5 @@
-﻿using NasaBot.Models;
+﻿using Microsoft.ApplicationInsights;
+using NasaBot.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -23,12 +24,25 @@ namespace NasaBot.Controllers
         private string CurrentIntent = string.Empty;
         #endregion
 
+        private TelemetryClient _client;
+
+        public TelemetryClient client
+        {
+            get
+            {
+                return _client = _client ?? new TelemetryClient();
+            }
+        }
+
         [ResponseType(typeof(QueryResponse))]
         public async Task<IHttpActionResult> Post([FromBody] QueryRequest request)
         {
             try
             {
                 var value = JsonConvert.SerializeObject(request);
+
+                client.TrackTrace("The post value is " + value);
+
                 QueryResponse response = null;
 
                 var messageText = request.Query;
@@ -74,6 +88,9 @@ namespace NasaBot.Controllers
                 using (var aiCLient = new HttpClient())
                 {
                     aiCLient.DefaultRequestHeaders.Add("Authorization", "Bearer 74f1e3958c9c4156ac1c05c751b56d61");
+
+                    client.TrackTrace("The nlu post value is " + uri);
+
                     var response = aiCLient.GetAsync(new Uri(uri));
                     var dataString = response.Result.Content.ReadAsStringAsync();
 
